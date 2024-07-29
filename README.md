@@ -13,7 +13,7 @@
 3. Start the app
 
     ```bash
-     npx expo start
+    npx expo start
     ```
 
 -   If you get an error about file descriptors you might have to update or install watchman 'brew install watchman'
@@ -36,7 +36,7 @@
 -   useEffect always gets me, I spent a good 2h trying to prevent it from going rogue after updating the state on load (infinite loop).
 -   switching from useState (nasty props drilling) to redux was a complicated refactoring but the result is a lot cleaner.
 -   In a real setup I would spend much more time on optimisations for data retrieval or filtering and such.
--   I had a hard time understanding why jest and babel were parsing the wrong files no matter what the config was. I had to completely re-create an empty project and it finally worked.
+-   I could not write a single component test without getting 'SyntaxError: Cannot use import statement outside a module'... I found many articles on the subject but none of the solutions worked, however, unit testing the redux actions was a straightforward process.
 
 6. Final words:
 

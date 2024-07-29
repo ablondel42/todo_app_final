@@ -26,18 +26,18 @@ describe('todos reducer', () => {
         initialLoadComplete: false,
     };
 
-    it('should handle initial state', () => {
+    it('initial state', () => {
         expect(todosReducer(undefined, { type: 'unknown' })).toEqual(
             initialState,
         );
     });
 
-    it('should handle setTitle', () => {
+    it('setTitle', () => {
         const actual = todosReducer(initialState, setTitle('Test Title'));
         expect(actual.title).toEqual('Test Title');
     });
 
-    it('should handle setDescription', () => {
+    it('setDescription', () => {
         const actual = todosReducer(
             initialState,
             setDescription('Test Description'),
@@ -45,7 +45,7 @@ describe('todos reducer', () => {
         expect(actual.description).toEqual('Test Description');
     });
 
-    it('should handle addTodo', () => {
+    it('addTodo', () => {
         const todo = {
             title: 'Test Todo',
             description: 'Test Description',
@@ -56,7 +56,7 @@ describe('todos reducer', () => {
         expect(actual.todos[0]).toEqual(todo);
     });
 
-    it('should handle deleteTodo', () => {
+    it('deleteTodo', () => {
         const todo = {
             title: 'Test Todo',
             description: 'Test Description',
@@ -67,17 +67,17 @@ describe('todos reducer', () => {
         expect(actual.todos.length).toEqual(0);
     });
 
-    it('should handle setFilter', () => {
+    it('setFilter', () => {
         const actual = todosReducer(initialState, setFilter('completed'));
         expect(actual.filter).toEqual('completed');
     });
 
-    it('should handle setFormVisibility', () => {
+    it('setFormVisibility', () => {
         const actual = todosReducer(initialState, setFormVisibility(true));
         expect(actual.formVisibility).toEqual(true);
     });
 
-    it('should handle toggleComplete', () => {
+    it('toggleComplete', () => {
         const todo = {
             title: 'Test Todo',
             description: 'Test Description',
@@ -88,7 +88,7 @@ describe('todos reducer', () => {
         expect(actual.todos[0].completed).toEqual(true);
     });
 
-    it('should handle setInitialTodos', () => {
+    it('setInitialTodos', () => {
         const todos = [
             { title: 'Todo 1', description: 'Description 1', completed: false },
             { title: 'Todo 2', description: 'Description 2', completed: true },
@@ -99,7 +99,7 @@ describe('todos reducer', () => {
         expect(actual.initialLoadComplete).toEqual(true);
     });
 
-    it('should handle startEditing', () => {
+    it('startEditing', () => {
         const todo = {
             title: 'Test Todo',
             description: 'Test Description',
@@ -112,7 +112,7 @@ describe('todos reducer', () => {
         expect(actual.editDescription).toEqual(todo.description);
     });
 
-    it('should handle saveEdit', () => {
+    it('saveEdit', () => {
         const todo = {
             title: 'Test Todo',
             description: 'Test Description',
