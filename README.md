@@ -1,50 +1,43 @@
-# Welcome to your Expo app 👋
-
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
-
-## Get started
-
 1. Install dependencies
 
-   ```bash
-   npm install
-   ```
+    ```bash
+    npm install
+    ```
 
-2. Start the app
+2. Run the tests
 
-   ```bash
-    npx expo start
-   ```
+    ```bash
+    npm test
+    ```
 
-In the output, you'll find options to open the app in a
+3. Start the app
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+    ```bash
+     npx expo start
+    ```
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+-   If you get an error about file descriptors you might have to update or install watchman 'brew install watchman'
+-   Download the 'Expo Go' app and scan the QRcode in the terminal to run the app on a physical device. (it worked well on an old Iphone I use for development).
+-   Press 'w' to run it in a web browser (tested on Chrome with no issues).
+-   unfortunately I could only test on Mac, I don't have a Windows machine, but i'm guessing/hoping that expo works the same way on Windows.
 
-## Get a fresh project
+4. My approach:
 
-When you're ready, run:
+-   I tried to keep things as simple as possible and I started by breaking down the UI into separate sections. (Header / Form / List)
+-   Then I listed all the variables and states I would need to make it work.
+-   I created the Stylesheet early on to keep things consistent.
+-   The styling I made is kinda cheap but CSS is not my strong suit (yet :P).
+-   Overall, the logic and state handling is almost identical to ReactJS so coming from ReactJS into React Native feels cool.
+-   If I have had more time I would have set some nicer components like modals, sliding elements, and maybe some subtle animations but here I just went with the very basic building blocs.
 
-```bash
-npm run reset-project
-```
+5. The challenges I faced:
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+-   The VSCode refactorings don't work well (idk why) and it was infuriating to move components and blocks manually.
+-   useEffect always gets me, I spent a good 2h trying to prevent it from going rogue after updating the state on load (infinite loop).
+-   switching from useState (nasty props drilling) to redux was a complicated refactoring but the result is a lot cleaner.
+-   In a real setup I would spend much more time on optimisations for data retrieval or filtering and such.
+-   I had a hard time understanding why jest and babel were parsing the wrong files no matter what the config was. I had to completely re-create an empty project and it finally worked.
 
-## Learn more
+6. Final words:
 
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+-   React Native & Expo are great tools and the docs are really neat!
